@@ -11,6 +11,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.api.databinding.ActivityMainBinding
 import okhttp3.Call
 import okhttp3.Callback
+import okhttp3.HttpUrl
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.Response
@@ -40,7 +41,8 @@ class MainActivity : AppCompatActivity() {
 
             //makeRequest()
 
-            makeRequestOKHttp()
+            // Query Parameter in OKHTTP
+            makeRequestOKHttp(binding.inputName.text.toString())
         }
 
     }
@@ -48,9 +50,17 @@ class MainActivity : AppCompatActivity() {
 
     // Request by using OKHTTP library
 
-    private fun makeRequestOKHttp() {
+    private fun makeRequestOKHttp(name: String) {
 
-        val request = Request.Builder().url("https://v2.jokeapi.dev/joke/Any").build()
+        // Professional Way to type URL
+
+        val url = HttpUrl.Builder()
+            .scheme("https")
+            .host("api.nationalize.io")
+            .addQueryParameter("name", name)
+            .build()
+
+        val request = Request.Builder().url(url).build()
         client.newCall(request).enqueue(object : Callback {
 
             override fun onFailure(call: Call, e: IOException) {
