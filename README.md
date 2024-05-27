@@ -15,6 +15,17 @@ Here are some useful links for working with APIs:
 - **[SV443 JokeAPI](https://sv443.net/jokeapi/v2/):** An API for programming jokes.
 - **[List of Free and Open APIs](https://mixedanalytics.com/blog/list-actually-free-open-no-auth-needed-apis/):** A curated list of free APIs that do not require authentication.
 
+
+## Dependencies
+
+Add the following dependency to your `build.gradle` file:
+
+```gradle
+dependencies {
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+}
+```
+
 ## Getting Started
 
 To get started with APIs, check out the resources above and explore the documentation provided by each link. Whether you are looking for information on HTTP methods, status codes, or looking for open APIs to use in your projects, these links will provide valuable information.
